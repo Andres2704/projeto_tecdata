@@ -6,6 +6,7 @@
 - PyMysql - Para fazer a comunicação com o banco de dados
 - JSON - Para retornar Json files na API
 - Flask - Framework para a API
+
 =============================================
 
 ### Informações importantes
