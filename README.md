@@ -1,4 +1,4 @@
-## **BarClub back-end em Python por:**
+## **Projeto de obtenção de dados TEC:**
 ### *Andres Benoit - andres.benoit7@gmail.com*
 =============================================
 
