@@ -14,6 +14,7 @@
 ### Informações importantes
 - Todos os dados selecionados e colocados em um banco de dados são providenciados pela IGS(International GNSS Service) e podem ser encontrados
 no repositório da NASA em: ftp://cddis.nasa.gov/gnss/products/ionex/
+- O deploy da API foi feita no Heroku
 
 =============================================
 
@@ -34,7 +35,7 @@ Em cada banco de dados existem 15 colunas, começando com o dia, no qual este va
 
 ### Guia para utilizar a API:
 
-1 - Para listar os dados TEC de todo o ano: url/tec?dia=&lat=&lon
+1 - Para listar os dados TEC de todo o ano: https://tecdatas.herokuapp.com/tec?dia=&lat=&lon
 
 =============================================
 
