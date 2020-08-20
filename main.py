@@ -12,13 +12,13 @@ while step != -90:
     lat.append(step)
     step -= 2.5
 
-#AQUI REALIZAMOS A CONEXÃO COM O BANCO DE DADOS E LOGO APÓS
+#AQUI REALIZAMOS A CONEXÃO COM O BANCO DE DADOS
 try:
     banco=pymysql.connect(
-        host='localhost',
-        user='root',
+        host='',
+        user='',
         password='',
-        db='tecdata',
+        db='',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
