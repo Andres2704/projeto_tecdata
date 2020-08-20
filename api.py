@@ -1,12 +1,12 @@
-import pymysql.cursors, json
+import pymysql.cursors, json, os
 from flask import Flask,request, jsonify
 
 try:
     banco=pymysql.connect(
-        host='sql112.epizy.com',
-        user='epiz_25900474',
-        password='4EZ75R0pZc1LR',
-        db='epiz_25900474_spaceapps_en',
+        host='ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user='t16zc09ibyggonsr',
+        password='ujx5bfilxtmxn282',
+        db='pzhisapgb2dhiyjr',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -14,13 +14,17 @@ except:
     print('error ao conectar com o banco de dados')
 
 #Função para obter o TEC específicado na barra de tarefa para determinado latxlon e ano
-def retornaTEC(lat,lon,ano):
-    dbName = str(ano)+'_'+str(lat)+'_'+str(lon)
+def retornaTEC(ano,lat, dia_i, dia_f):
+    tecs = []
+    linha_i = dia_i*13
+    linha_f = dia_f*13
+    dbName = str(ano)+'_'+str(lat)
     try:
         with banco.cursor() as cursor:
-            cursor.execute("SELECT * FROM `"+dbName+"` ORDER BY dia ASC")
+            cursor.execute("SELECT * FROM `"+dbName+"` ORDER BY id ASC LIMIT "+str(linha_i-13)+","+str(linha_f)+"")
             tecs = cursor.fetchall()
     except:
+        print("SELECT * FROM `"+dbName+"` ORDER BY id ASC LIMIT "+str(linha_i-13)+","+str(linha_f)+"")
         print('erro ao listar os TECs para o bando de dados:', dbName)
 
     return tecs
@@ -38,13 +42,18 @@ def obterTECdeBD():
     if 'ano' in request.args:
         ano = int(request.args['ano'])
         lat = float(request.args['lat'])
-        lon = int(request.args['lon'])
+        dia_i = int(request.args['dia_i'])
+        dia_f = int(request.args['dia_f'])
     else:
-        return "Error: Existem dados faltantes. Você deve especificar o ano, a latitude(lat) e a longitude(lon). Ex: tec/?ano=2019&lat=87.5&lon=-170"
+        return "Error: Existem dados faltantes. Você deve especificar o ano, a latitude(lat) e de que dia a que dia quer obter os dados. Ex: /tec?ano=2019&lat=87.5&dia_i=-1&dia_f=10"
     
-    resultados = [retornaTEC(lat,lon,ano)]
+    resultados = []
+    for tec in retornaTEC(ano, lat, dia_i, dia_f):
+        resultados.append(tec)
     
     return jsonify(resultados)
 
-app.run()
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
 
