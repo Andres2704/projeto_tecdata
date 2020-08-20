@@ -3,10 +3,10 @@ from flask import Flask,request, jsonify
 
 try:
     banco=pymysql.connect(
-        host='ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user='t16zc09ibyggonsr',
-        password='ujx5bfilxtmxn282',
-        db='pzhisapgb2dhiyjr',
+        host='',
+        user='',
+        password='',
+        db='',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
