@@ -1,5 +1,4 @@
 import urllib.request, os
-from zipfile import ZipFile
 
 #url = 'ftp://cddis.nasa.gov/gnss/products/ionex/2019/002/igsg0020.19i.Z'
 #urllib.request.urlretrieve(url, 'igsg0020.19i.Z')
