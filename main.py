@@ -15,10 +15,10 @@ while step != -90:
 #AQUI REALIZAMOS A CONEXÃO COM O BANCO DE DADOS E LOGO APÓS
 try:
     banco=pymysql.connect(
-        host='us-cdbr-east-02.cleardb.com',
-        user='bfba5ab75e431f',
-        password='24aa11e4',
-        db='heroku_07568d07459b9e8',
+        host='localhost',
+        user='root',
+        password='',
+        db='tecdata',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -68,45 +68,51 @@ def obterTEC(ano):
 
                 for k in p:
                     teste1_num = [item.replace(k, ';') for item in teste1_num]
-
                 vec_aux = [teste1_num[i].split(';') for i in range(0, len(teste1_num))]
-                vec_aux2 = [vec_aux[i][k] for i in range(0, len(vec_aux)) for k in range(0, len(vec_aux[i]))]
-                vec_aux2 = list(filter(lambda m: m != '', vec_aux2))
-                tec.append(vec_aux2)
+                vec_aux2 = [list(filter(lambda m: m != '', vec_aux[i])) for i in range(0, len(vec_aux))]
+                vec_aux = []
+                step = 0
+                for i in range(0, len(lat)):
+                    vec_aux.append(vec_aux2[step:step+5])
+                    step += 5
+                vec_aux2 = []
+                y = []
+                for i in range(0, len(vec_aux)):
+                    for j in range(0, 5):
+                        vec_aux2 = vec_aux2 + vec_aux[i][j]
+                    y.append(vec_aux2)
+                    vec_aux2 = []
+
+                tec.append(y)
 
             TEC.append(tec)
             tec = []
-            vec_aux = []
-            vec_aux2 = []
+
         print('Iniciando armazenamento ANO[{}]'.format(ano))
-        armazenarTEC(TEC, ano) #Chamamos a função armazenarTEC para colocálo no bando de dados da API
+        armazenarTEC(TEC, ano)#Chamamos a função armazenarTEC para colocálo no bando de dados da API
         return 1
 
 #Função para armazenar os dados TEC no Banco de dados MYSQL da API
 def armazenarTEC(TEC, ano_inicial):
-        print(str(ano_inicial))
-        step_lon = 0
-        step = 0
-        dia = 0
-        for latitude in lat:
-            for longitude in range(0,73):
-                for i in range(step_lon, step_lon+1):
-                    y = [int(TEC[j][i][step_lon]) for j in range(0, 365) for i in range(0, 13)]
-                    for j in range(0,365):
-                        val = [dia+1] + y[step:step+13] + [90]
-                        step += 13
-                        dia += 1
-                        print(val)
-                        with banco.cursor() as cursor:
-                            dbName = '20'+str(ano_inicial)+''+str(latitude)+''+str(lon[longitude])
-                            sql = "INSERT INTO `" + dbName + "` (dia, hora0, hora2, hora4, hora6, hora8, hora10, hora12, hora14, hora16, hora18, hora20, hora22, hora24, f107) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-                            cursor.execute(sql, val)
-                            banco.commit()
-                    dia = 0
-                    step=0
-                    val = []
-                    y = []
-            step_lon += 73
+        cont = 0
+        s = ',%s'
+        f107 = 107
+        #TEC[i][j] Acesso para as latitudes
+        #TEC[i][j][k] Acesso para as longitudes
+        for i in range(0, len(TEC)):
+            for j in range(0, len(TEC[i])):
+                for k in range(0,len(TEC[i][j])):
+                    latitude = lat[k]
+                    if cont==26:
+                        cont=0
+                    val = [cont] + [f107] + TEC[i][j][k]
+                    with banco.cursor() as cursor:
+                        tableName = '20' + str(ano_inicial) + '_' + str(latitude)
+                        sql = "INSERT INTO `" + tableName + "` (hora, `F10.7`, `-180`, `-175`, `-170`, `-165`, `-160`, `-155`, `-150`, `-145`, `-140`, `-135`, `-130`, `-125`, `-120`, `-115`, `-110`, `-105`, `-100`, `-95`, `-90`, `-85`, `-80`, `-75`, `-70`, `-65`, `-60`, `-55`, `-50`, `-45`, `-40`, `-35`, `-30`, `-25`, `-20`, `-15`, `-10`, `-5`, `0`, `5`, `10`, `15`, `20`, `25`, `30`, `35`, `40`, `45`, `50`, `55`, `60`, `65`, `70`, `75`, `80`, `85`, `90`, `95`, `100`, `105`, `110`, `115`, `120`, `125`, `130`, `135`, `140`, `145`, `150`, `155`, `160`, `165`, `170`, `175`, `180`) VALUES (%s" + s * 74 + ")"
+                        cursor.execute(sql, val)
+
+                cont += 2
+
         print('done')
 
 if __name__=='__main__':
@@ -127,5 +133,6 @@ if __name__=='__main__':
         if ano_inicial==0:
             os._exit(0)
         start = time.time()
+        ano_inicial = [ano_inicial]
         a = pool.map_async(obterTEC, ano_inicial)
         print(a.get(), time.time()-start)
