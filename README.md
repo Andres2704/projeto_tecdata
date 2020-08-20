@@ -9,6 +9,7 @@
 - Os - para algumas funções recorrentes como criar um diretório
 - Time - Para contabilizar o tempo que leva o código em operar
 - Multiprocessing - Para paralelizar os processos 
+- Urllib - Para acessar o repositório dos dados
 
 =============================================
 
