@@ -8,7 +8,7 @@
 - Flask - Framework para a API
 - Os - para algumas funções recorrentes como criar um diretório
 - Time - Para contabilizar o tempo que leva o código em operar
-- multiprocessing - Para paralelizar os processos 
+- Multiprocessing - Para paralelizar os processos 
 
 =============================================
 
