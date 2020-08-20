@@ -1,7 +1,6 @@
 import multiprocessing as mp
 import time, os
 import pymysql.cursors
-import api
 from tecdata import importarz, criarbd
 
 #Dados utilizado futuramente (Latitude e longitude)
