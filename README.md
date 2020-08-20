@@ -27,15 +27,15 @@ no repositório da NASA em: ftp://cddis.nasa.gov/gnss/products/ionex/
 =============================================
 
 ### Estrutura do Banco de dados
-Existem 5183 tabelas contendo dados TEC por ano. Para cada tabela é atribuida a seguinte nomeclatura ano_latitude_longitude. 
+Existem 71 tabelas contendo dados TEC por ano. Para cada tabela é atribuida a seguinte nomeclatura ano_latitude.
 
-Em cada banco de dados existem 15 colunas, começando com o dia, no qual este varia de 1 a 365, seguido de 13 tabelas contentdos os valores de TEC para cada hora do dia com um passo de 7200s, ou seja, a cada duas horas e por último o índice F10.7. Futuramente serão adicionadas outras fequências para a análise.
+Em cada banco de dados existem 76 colunas, a primeira é o identificador de cada linha, segue a hora do dia e o índice F10.7 (ainda não está com o valor correto), *futuramente serão adicionados outros índices para desenvolver uma análise mais aprimorada*. A colunas que seguem são as latitudes variando de -180 a 180 com passo de 5. Note que cada tabela possui 4745, isso se a que são 365 dias onde cada dia possui 13 intervalos, ou seja, começa na hora 0 e vai até a hora 24 com passo de 2, assim 365x13=4745.
 
 =============================================
 
 ### Guia para utilizar a API:
 
-1 - Para listar os dados TEC de todo o ano: https://tecdatas.herokuapp.com/tec?dia=&lat=&lon
+1 - Para listar os dados TEC de um intervalo de dias: https://tecdatas.herokuapp.com/tec?ano=&lat=&dia_i=&dia_f=
 
 =============================================
 
