@@ -88,7 +88,7 @@ def obterTEC(ano):
             tec = []
 
         print('Iniciando armazenamento ANO[{}]'.format(ano))
-        armazenarTEC(TEC, ano)#Chamamos a função armazenarTEC para colocálo no bando de dados da API
+        armazenarTEC(TEC, ano)#Chamamos a função armazenarTEC para colocá-lo no banco de dados da API
         return 1
 
 #Função para armazenar os dados TEC no Banco de dados MYSQL da API
