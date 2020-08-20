@@ -9,10 +9,10 @@ while step != -90:
 
 try:
     banco=pymysql.connect(
-        host='us-cdbr-east-02.cleardb.com',
-        user='bfba5ab75e431f',
-        password='24aa11e4',
-        db='heroku_07568d07459b9e8',
+        host='',
+        user='',
+        password='',
+        db='',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
