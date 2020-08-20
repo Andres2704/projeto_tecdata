@@ -10,8 +10,9 @@ class importtec():
 
     def importar(self):
         for ano in range(self.anoi, self.anof+1):
-            os.mkdir(str(ano))
-            for i in range(1, 366):
+            if not os.path.exists('tecdata/20'+str(ano)):
+                os.makedirs('tecdata/20'+str(ano))
+            for i in range(65, 366):
                 if i < 10:
                     number_file = "00" + str(i)
                 elif (i > 9) and (i < 100):
@@ -19,8 +20,9 @@ class importtec():
                 else:
                     number_file = str(i)
                 filename = 'igsg' + str(number_file) + '0.' + str(ano) + 'i.Z'
-                pathname = '/20' + str(ano) + '/' + filename
+                pathname = 'tecdata/20' + str(ano) + '/' + filename
                 url = 'ftp://cddis.nasa.gov/gnss/products/ionex/20' + str(ano) + '/' + str(number_file) + '/' + filename
+                print(url)
                 urllib.request.urlretrieve(url, pathname)
                 
 #Ao final do processo você deve extrair os arquivos .Z manualmente.
