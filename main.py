@@ -115,17 +115,17 @@ def armazenarTEC(TEC, ano_inicial):
         print('done')
 
 if __name__=='__main__':
-    op = int(input("1 - Fazer o download de arquivos Z para o PC\n2 - Criar banco de dados para determinado intervalo de tempo(anos)\n3 - Salvar dados na API\n Escolha uma opção: "))
+    op = int(input("1 - Fazer o download de arquivos Z para o PC\n2 - Criar tabelas para determinado intervalo de tempo(anos)\n3 - Salvar dados na API\n Escolha uma opção: "))
     if op==1:
         ano_inicial = int(input('Digite o ano inicial compactado(19 no lugar de 2019)[0 para sair]: '))
         ano_final = int(input('Digite o ano final compactado(19 no lugar de 2019)[0 para sair]: '))
-        importarz.importtec(ano_inicial, ano_final)
+        importarz.importtec(ano_inicial, ano_final).importar()
         print('Os arquivos foram baixados')
         os._exit(0)
     elif op==2:
         ano_inicial = int(input('Digite o ano inicial compactado(19 no lugar de 2019)[0 para sair]: '))
         ano_final = int(input('Digite o ano final compactado(19 no lugar de 2019)[0 para sair]: '))
-        criarbd.criaBD(ano_inicial, ano_final)
+        criarbd.criaBD(ano_inicial, ano_final).bd()
     else:
         pool = mp.Pool(4)
         ano_inicial = int(input('Digite o ano compactado(19 no lugar de 2019)[0 para sair]: '))
