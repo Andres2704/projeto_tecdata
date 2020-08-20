@@ -1,4 +1,4 @@
-## **Projeto de obtenção de dados TEC:**
+## **Projeto de obtenção de dados TEC (Conteúdo eletrônico total):**
 ### *Andres Benoit - andres.benoit7@gmail.com*
 =============================================
 
