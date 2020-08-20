@@ -23,3 +23,5 @@ class importtec():
                 pathname = '/20' + str(ano) + '/' + filename
                 url = 'ftp://cddis.nasa.gov/gnss/products/ionex/20' + str(ano) + '/' + str(number_file) + '/' + filename
                 urllib.request.urlretrieve(url, pathname)
+                
+#Ao final do processo você deve extrair os arquivos .Z manualmente.
