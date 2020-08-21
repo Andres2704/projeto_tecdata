@@ -12,7 +12,7 @@ class importtec():
         for ano in range(self.anoi, self.anof+1):
             if not os.path.exists('tecdata/20'+str(ano)):
                 os.makedirs('tecdata/20'+str(ano))
-            for i in range(65, 366):
+            for i in range(1, 366):
                 if i < 10:
                     number_file = "00" + str(i)
                 elif (i > 9) and (i < 100):
