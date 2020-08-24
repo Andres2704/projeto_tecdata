@@ -3,28 +3,29 @@
 =============================================
 
 ### Bibliotecas utilizadas
-- PyMysql - Para fazer a comunicação com o banco de dados
-- JSON - Para retornar Json files na API
-- Flask - Framework para a API
-- Os - para algumas funções recorrentes como criar um diretório
-- Time - Para contabilizar o tempo que leva o código em operar
-- Multiprocessing - Para paralelizar os processos 
-- Urllib - Para acessar o repositório dos dados
+- PyMysql - Para fazer a comunicação com o banco de dados;
+- JSON - Para retornar Json files na API;
+- Flask - Framework para a API;
+- Os - para algumas funções recorrentes como criar um diretório;
+- Time - Para contabilizar o tempo que leva o código em operar;
+- Multiprocessing - Para paralelizar os processos;
+- Urllib - Para acessar o repositório dos dados.
 
 =============================================
 
 ### Informações importantes
 - Todos os dados selecionados e colocados em um banco de dados são providenciados pela IGS(International GNSS Service) e podem ser encontrados
-no repositório da NASA em: ftp://cddis.nasa.gov/gnss/products/ionex/
-- O deploy da API foi feita no Heroku
+no repositório da NASA em: ftp://cddis.nasa.gov/gnss/products/ionex/;
+- O deploy da API foi feita no Heroku.
 
 =============================================
 
 ### Arquivos
-- main.py contém o coração do projeto, nele foi desenvolvido a interface para filtar o arquivo IONEX e armazenar no BD, assim como chamar as classes de outros arquivos
-- api.py contém o cógido desenvolvido para a construção da API.
-- tecdata/criarbd.py - contém o código para criar o banco de dados no servidor dada uma data em ano, a nomeclatura criada é ano_latitude_longitude
-- tecdata/importarz.py - contém o código para importar os dados do repositório da NASA, criar a posta separada em anos e armazenar nela os arquivos compactados
+- main.py contém o coração do projeto, nele foi desenvolvido a interface para filtar o arquivo IONEX e armazenar no BD, assim como chamar as classes de outros arquivos.
+*embora o código seja simples ele esta bem comentado*;
+- api.py contém o cógido desenvolvido para a construção da API;
+- tecdata/criarbd.py - contém o código para criar o banco de dados no servidor dada uma data em ano, a nomeclatura criada é ano_latitude_longitude;
+- tecdata/importarz.py - contém o código para importar os dados do repositório da NASA, criar a posta separada em anos e armazenar nela os arquivos compactados.
 
 =============================================
 
@@ -46,6 +47,6 @@ Fora as tabelas com os dados de TEC, existem outras tabelas como F10.7 onde cada
 
 ### Classes desenvolvidas
 #### class criaBD():
-Encontrada em criarbd.py - Utilizada para criar um banco de dados para dado intervalo de tempo em anos
+Encontrada em criarbd.py - Utilizada para criar um banco de dados para dado intervalo de tempo em anos.
 #### class importtec():
-Encontrada em importarz.py - Utilizada para importar os arquivos .Z do repositório da NASA, estes dados são armazenados localmente para futuro tratamento
+Encontrada em importarz.py - Utilizada para importar os arquivos .Z do repositório da NASA, estes dados são armazenados localmente para futuro tratamento.
