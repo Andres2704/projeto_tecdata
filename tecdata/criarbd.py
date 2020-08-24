@@ -29,7 +29,7 @@ class criaBD():
             for i in lat:
                 with banco.cursor() as cursor:
                     tableName = '20'+str(ano)+'_'+str(i)
-                    sql = "CREATE TABLE IF NOT EXISTS `"+tableName+"`(id int(11) auto_increment, hora int(11) not null, `F10.7` double(10,2) NULL DEFAULT NULL, PRIMARY KEY (`id`))"
+                    sql = "CREATE TABLE IF NOT EXISTS `"+tableName+"`(id int(11) auto_increment, hora int(11) not null, PRIMARY KEY (`id`))"
                     cursor.execute(sql)
                     for longitude in lon:
                         sql = "ALTER TABLE `"+tableName+"` ADD `"+str(longitude)+"` int(11)"
