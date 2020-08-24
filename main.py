@@ -6,10 +6,10 @@ from tecdata import importarz, criarbd
 
 try:
     banco=pymysql.connect(
-        host='localhost',
-        user='root',
+        host='',
+        user='',
         password='',
-        db='tecdata',
+        db='',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
