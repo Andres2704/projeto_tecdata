@@ -21,8 +21,7 @@ no repositório da NASA em: ftp://cddis.nasa.gov/gnss/products/ionex/;
 =============================================
 
 ### Arquivos
-- main.py contém o coração do projeto, nele foi desenvolvido a interface para filtar o arquivo IONEX e armazenar no BD, assim como chamar as classes de outros arquivos.
-*embora o código seja simples ele esta bem comentado*;
+- main.py contém o coração do projeto, nele foi desenvolvido a interface para filtar o arquivo IONEX e armazenar no BD, assim como chamar as classes de outros arquivos;
 - api.py contém o cógido desenvolvido para a construção da API;
 - tecdata/criarbd.py - contém o código para criar o banco de dados no servidor dada uma data em ano, a nomeclatura criada é ano_latitude;
 - tecdata/importarz.py - contém o código para importar os dados do repositório da NASA, criar a posta separada em anos e armazenar nela os arquivos compactados.
