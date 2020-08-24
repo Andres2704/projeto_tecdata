@@ -31,7 +31,10 @@ no repositório da NASA em: ftp://cddis.nasa.gov/gnss/products/ionex/
 ### Estrutura do Banco de dados
 Existem 71 tabelas contendo dados TEC por ano. Para cada tabela é atribuida a seguinte nomeclatura ano_latitude.
 
-Em cada banco de dados existem 76 colunas, a primeira é o identificador de cada linha, segue a hora do dia e o índice F10.7 (ainda não está com o valor correto), *futuramente serão adicionados outros índices para desenvolver uma análise mais aprimorada*. As colunas que seguem são as longitudes variando de -180 a 180 com passo de 5. Note que cada tabela possui 4745, isso se a que são 365 dias onde cada dia possui 13 intervalos, ou seja, começa na hora 0 e vai até a hora 24 com passo de 2, assim 365x13=4745.
+Em cada banco de dados existem 76 colunas, a primeira é o identificador de cada linha, segue a hora do dia. As colunas que seguem são as longitudes variando de -180 a 180 com passo de 5. Note que cada tabela possui 4745, isso se a que são 365 dias onde cada dia possui 13 intervalos, ou seja, começa na hora 0 e vai até a hora 24 com passo de 2, assim 365x13=4745.
+
+Fora as tabelas com os dados de TEC, existem outras tabelas como F10.7 onde cada coluna representa o ano e cada linha o dia desse ano, representando esse índice.
+*futuramente serão adicionadas outras tabelas com outros índices para uma análise mais aprimorada*.
 
 =============================================
 
