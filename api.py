@@ -117,7 +117,7 @@ def obterRSNdeBD():
     return jsonify(resultados)
 
 @app.route('/photonflux/', methods=['GET'])
-def obterRSNdeBD():
+def obterphotonfluxdeBD():
     if 'ano' in request.args:
         ano = int(request.args['ano'])
         dia_i = int(request.args['dia_i'])
