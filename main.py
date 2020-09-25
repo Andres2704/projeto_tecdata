@@ -64,7 +64,7 @@ def obterTEC(ano):
                     j += 6
 
                 # //--------------------------Lidando com os dados numericos------------------------------------------
-                p = ['   ', '  '] #Como ainda temos espaços nos índices da lista teste1_num, precisamos retirá-los
+                p = ['   ', '  ', ' '] #Como ainda temos espaços nos índices da lista teste1_num, precisamos retirá-los
                 for k in p:
                     teste1_num = [item.replace(k, ';') for item in teste1_num]#Retiramos os espaços e substituimos por ;
 
