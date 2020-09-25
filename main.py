@@ -107,8 +107,9 @@ def obterTEC(ano):
 def armazenarTEC(TEC, ano_inicial):
         cont = 0
         s = ',%s'
-        #TEC[i][j] Acesso para as latitudes
-        #TEC[i][j][k] Acesso para as longitudes
+        #TEC[i] Acesso para o dia do ano
+        #TEC[i][j] Acesso determinada hora do dia ([0:2:24]) ou seja, 13 dados
+        #TEC[i][j][k] Acesso para as latitudes
         for i in range(0, len(TEC)):
             for j in range(0, len(TEC[i])):
                 for k in range(0,len(TEC[i][j])):
